@@ -1,0 +1,68 @@
+@keyframes animacao-cardapio {
+    from {
+        top: 0px;
+    }
+
+    to {
+        top: 10px;
+    }
+}
+
+.fa-chevron-down {
+    animation-name: animacao-cardapio;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: relative;
+}
+
+video {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.menu-item-shadow {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.bg-categoria {
+    height: 175px;
+    margin-bottom: 5%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background-color: rgb(200, 0, 0);}
+
+.div-categoria {
+    max-width: 1260px;
+}
+
+.itens-categoria {
+    color: #e1e1e1;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+
+.show-carrinho {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 1023px) {
+    .bg-categoria {
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .bg-categoria {
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    .bg-categoria {
+        height: 100vh;
+        background-color: #f3f3f3;
+    }
+
+    .itens-categoria {
+        color: black;
+    }
+}
