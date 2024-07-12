@@ -1,11 +1,11 @@
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom';
 
-import Item_1 from '../assets/img/categorias/01-combos.png'
-import Item_2 from '../assets/img/categorias/02-hot-dogs.png'
-import Item_3 from '../assets/img/categorias/03-hamburgers.png'
-import Item_4 from '../assets/img/categorias/04-pasteis.png'
-import Item_5 from '../assets/img/categorias/05-porcoes.png'
-import Item_6 from '../assets/img/categorias/06-bebidas.png'
+import Item_1 from '../assets/img/categorias/01-combos.png';
+import Item_2 from '../assets/img/categorias/02-hot-dogs.png';
+import Item_3 from '../assets/img/categorias/03-hamburgers.png';
+import Item_4 from '../assets/img/categorias/04-pasteis.png';
+import Item_5 from '../assets/img/categorias/05-porcoes.png';
+import Item_6 from '../assets/img/categorias/06-bebidas.png';
 
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
@@ -76,14 +76,14 @@ function updateCartModal() {
             cartItemElement.classList.add("mb-5");
 
             cartItemElement.innerHTML = `
-            <div class="flex items-center justify-between">
-                <div class="flex flex-col">
-                    <span class="font-medium">${item.name}</span>
-                    <span>Qtd: ${item.qtd}</span>
-                    <span class="font-medium">R$ ${item.price.toFixed(2)}</span>
-                </div>
-                <button class="remove-btn" data-name="${item.name}">Remover</button>
-            </div>`;
+                <div class="flex items-center justify-between">
+                    <div class="flex flex-col">
+                        <span class="font-medium">${item.name}</span>
+                        <span>Qtd: ${item.qtd}</span>
+                        <span class="font-medium">R$ ${item.price.toFixed(2)}</span>
+                    </div>
+                    <button class="remove-btn" data-name="${item.name}">Remover</button>
+                </div>`;
 
             total += item.price * item.qtd;
 
@@ -139,7 +139,7 @@ export function MenuItem({ type, src, alt, nome, descricao, preco, data_name, da
     return (
         <div className='flex gap-2'>
             <div className='w-60 h-30 hover:scale-110 hover:-rotate-2 duration-300'>
-                <img src={src} alt={alt} className='rounded menu-item-shadow ' />
+                <img src={src} alt={alt} className='rounded menu-item' />
             </div>
 
             <div className='w-full'>
@@ -162,58 +162,38 @@ export function MenuItem({ type, src, alt, nome, descricao, preco, data_name, da
 }
 
 export function Categoria() {
+
     return (
         <main>
             <div className='flex items-center justify-center bg-categoria'>
                 <div className='flex w-full flex-wrap div-categoria'>
-
-                    <div className='itens-categoria w-1/2 sm:w-1/3 lg:w-1/6 text-center'>
-                        <div className='w-28 h-28 rounded-full mx-auto'>
-                            <Link to={'combos'}><img src={Item_1} alt='Combos' className='w-28 h-28 rounded-full menu-item-shadow hover:scale-110 duration-300 cursor-pointer' /></Link>
-                            <h2 className='scroll font-bold mt-1'>Combos</h2>
-                        </div>
-                    </div>
-
-                    <div className='itens-categoria w-1/2 sm:w-1/3 lg:w-1/6 text-center'>
-                        <div className='w-28 h-28 rounded-full mx-auto'>
-                            <Link to={'hot_dog'}><img src={Item_2} alt='Hot Dogs' className='w-28 h-28 rounded-full menu-item-shadow hover:scale-110 duration-300 cursor-pointer' /></Link>
-                            <h2 className='font-bold mt-1'>Hot Dogs</h2>
-                        </div>
-                    </div>
-
-                    <div className='itens-categoria w-1/2 sm:w-1/3 lg:w-1/6 text-center'>
-                        <div className='w-28 h-28 rounded-full mx-auto'>
-                            <Link to={'hamburgers'}><img src={Item_3} alt='Hamburgers' className='w-28 h-28 rounded-full menu-item-shadow hover:scale-110 duration-300 cursor-pointer' />
-                                <h2 className='font-bold mt-1'>Hamburgers</h2></Link>
-                        </div>
-                    </div>
-
-                    <div className='itens-categoria w-1/2 sm:w-1/3 lg:w-1/6 text-center'>
-                        <div className='w-28 h-28 rounded-full mx-auto'>
-                            <Link to={'pasteis'}><img src={Item_4} alt='Pasteis' className='w-28 h-28 rounded-full menu-item-shadow hover:scale-110 duration-300 cursor-pointer' />
-                                <h2 className='font-bold mt-1'>Pasteis</h2></Link>
-                        </div>
-                    </div>
-
-                    <div className='itens-categoria w-1/2 sm:w-1/3 lg:w-1/6 text-center'>
-                        <div className='w-28 h-28 rounded-full mx-auto'>
-                            <Link to={'porcoes'}><img src={Item_5} alt='Porções' className='w-28 h-28 rounded-full menu-item-shadow hover:scale-110 duration-300 cursor-pointer' />
-                                <h2 className='font-bold mt-1'>Porções</h2></Link>
-                        </div>
-                    </div>
-
-                    <div className='itens-categoria w-1/2 sm:w-1/3 lg:w-1/6 text-center'>
-                        <div className='w-28 h-28 rounded-full mx-auto'>
-                            <Link to='bebidas'><img src={Item_6} alt='Bebidas' className='w-28 h-28 rounded-full menu-item-shadow hover:scale-110 duration-300 cursor-pointer' />
-                                <h2 className='font-bold mt-1'>Bebidas</h2></Link>
-                        </div>
-                    </div>
+                    <CategoriaItem link={'combos'} img={Item_1} nome='Combos' />
+                    <CategoriaItem link={'hot_dog'} img={Item_2} nome='Hot Dogs' />
+                    <CategoriaItem link={'hamburgers'} img={Item_3} nome='Hamburgers' />
+                    <CategoriaItem link={'pasteis'} img={Item_4} nome='Pasteis' />
+                    <CategoriaItem link={'porcoes'} img={Item_5} nome='Porções' />
+                    <CategoriaItem link={'bebidas'} img={Item_6} nome='Bebidas' />
                 </div>
             </div>
-
-            <div>
-                <Outlet />
-            </div>
+            <div id="output"></div>
+            <Outlet />
         </main>
-    )
+    );
 }
+
+interface CategoriaItemProps {
+    link: string;
+    img: string;
+    nome: string;
+}
+
+const CategoriaItem: React.FC<CategoriaItemProps> = ({ link, img, nome }) => {
+    return (
+        <div className='itens-categoria w-1/2 sm:w-1/3 lg:w-1/6 text-center'>
+            <div className='w-28 h-28 rounded-full mx-auto'>
+                <Link to={link}><img src={img} alt={nome} className='w-28 h-28 rounded-full menu-item-shadow hover:scale-110 duration-300 cursor-pointer' /></Link>
+                <h2 className='scroll font-bold mt-1'>{nome}</h2>
+            </div>
+        </div>
+    );
+};

@@ -18,7 +18,7 @@ export function Porcoes() {
             <div className='items-center justify-center flex flex-col mb-10'>
                 <h2 className='text-4xl font-bold text-center'>Porções</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mt-20 mb-16'>
-                    <MenuItem type="comida" src={Porcao} alt='Batata Cheddar Bacon' nome="Batata Cheddar Bacon" preco='0' data_name='Batata Cheddar Bacon' data_price={0} />
+                    <MenuItem type="comida" src={Porcao} alt='Porção de batata' nome="Porção de batata" preco='28,00' data_name='Porção de batata' data_price={28.00} descricao="Bata frita, cheddar, bacon. 500g" />
                 </div>
             </div>
 

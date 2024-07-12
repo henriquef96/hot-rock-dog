@@ -80,23 +80,23 @@ export function Bebidas() {
             <div className='items-center justify-center flex flex-col mb-10'>
                 <h2 className='text-4xl font-bold text-center'>Bebidas</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mt-20 mb-16'>
-                    <MenuItem type="bebida" src={Bebida_1} alt='Coca Cola lata' nome="Coca Cola Lata" preco='' data_name='Coca Cola lata' data_price={6.00} />
+                    <MenuItem type="bebida" src={Bebida_1} alt='Coca Cola 350ml' nome="Coca Cola 350ml" preco='6,00' data_name='Coca Cola 350ml' data_price={6.00} />
 
-                    <MenuItem type="bebida" src={Bebida_2} alt='Coca Cola Zero' nome="Coca Cola 2L" preco='' data_name='Coca Cola 2L' data_price={14.00} />
+                    <MenuItem type="bebida" src={Bebida_2} alt='Coca Cola Zero 350ml' nome="Coca Cola Zero 350ml" preco='6,00' data_name='Coca Cola Lata Zero' data_price={6.00} />
 
-                    <MenuItem type="bebida" src={Bebida_3} alt='Cine Framboesa 2L' nome="Cine Framboesa 2L" preco='' data_name='Cine Framboesa 2L' data_price={9.00} />
+                    <MenuItem type="bebida" src={Bebida_3} alt='Fanta 350ml' nome="Fanta 350ml" preco='6,00' data_name='Fanta Lata' data_price={6.00} />
 
-                    <MenuItem type="bebida" src={Bebida_4} alt='Cine Abacaxi 2L' nome="Cine Abacaxi 2L" preco='' data_name='Cine Abacaxi 2L' data_price={9.00} />
+                    <MenuItem type="bebida" src={Bebida_4} alt='Fanta Uva 350ml' nome="Fanta Uva 350ml" preco='6,00' data_name='Fanta Uva 350ml' data_price={6.00} />
 
-                    <MenuItem type="bebida" src={Bebida_5} alt='Cine Laranjinha 2L' nome="Cine Laranjinha 2L" preco='' data_name='Cine Laranjinha 2L' data_price={9.00} />
+                    <MenuItem type="bebida" src={Bebida_5} alt='Guarana 350ml' nome="Guarana 350ml" preco='6,00' data_name='Guarana 350ml' data_price={6.00} />
 
-                    <MenuItem type="bebida" src={Bebida_6} alt='Coca Cola lata' nome="Coca Cola Lata" preco='' data_name='Coca Cola lata' data_price={6.00} />
+                    <MenuItem type="bebida" src={Bebida_6} alt='Coca Cola 2L' nome="Coca Cola 2L" preco='14,00' data_name='Coca Cola 2L' data_price={14.00} />
 
-                    <MenuItem type="bebida" src={Bebida_7} alt='Coca Cola 2L' nome="Coca Cola 2L" preco='' data_name='Coca Cola 2L' data_price={14.00} />
+                    <MenuItem type="bebida" src={Bebida_7} alt='Cini Framboesa 2L' nome="Cini Framboesa 2L" preco='9,00' data_name='Cini Framboesa 2L' data_price={9.00} />
 
-                    <MenuItem type="bebida" src={Bebida_8} alt='Cine Framboesa 2L' nome="Cine Framboesa 2L" preco='' data_name='Cine Framboesa 2L' data_price={9.00} />
+                    <MenuItem type="bebida" src={Bebida_8} alt='Cine Laranjinha 2L' nome="Cine Laranjinha 2L" preco='9,00' data_name='Cine Laranjinha 2L' data_price={9.00} />
 
-                    <MenuItem type="bebida" src={Bebida_9} alt='Cine Abacaxi 2L' nome="Cine Abacaxi 2L" preco='' data_name='Cine Abacaxi 2L' data_price={9.00} />
+                    <MenuItem type="bebida" src={Bebida_9} alt='Cine Abacaxi 2L' nome="Cine Abacaxi 2L" preco='9,00' data_name='Cine Abacaxi 2L' data_price={9.00} />
                 </div>
             </div>
         </main>

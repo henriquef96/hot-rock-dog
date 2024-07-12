@@ -43,7 +43,8 @@ export function Carrinho() {
     };
 
     return (
-        <div
+       <main>
+         <div
             id="cart-modal"
             className="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden"
             onClick={closeModal}
@@ -72,16 +73,6 @@ export function Carrinho() {
                     </p>
                 )}
 
-                <p className="font-bold">Observações:</p>
-
-                <input
-                    type="text"
-                    placeholder="Digite seu endereço completo..."
-                    className="w-full border p-1 rounded my-1 mb-10"
-                    value={address}
-                    onChange={handleAddressChange}
-                />
-
                 <div className='flex justify-between'>
                     <div>
                         <label htmlFor="">Precisa de Troco?</label><br />
@@ -91,7 +82,7 @@ export function Carrinho() {
                             <option value="nao">Não</option>
 
                         </select>
-                        <input className='text-center' style={{ width: '100px' }} type="text" placeholder='Valor' />
+                        <input className='m-1' style={{ width: '100px' }} type="text" placeholder='Valor' />
                     </div>
 
                     <div>
@@ -112,5 +103,6 @@ export function Carrinho() {
                 </div>
             </div>
         </div>
+       </main>
     );
 }
