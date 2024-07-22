@@ -1,11 +1,8 @@
-import { useEffect } from 'react';
-
 import Bebida_1 from '../../../assets/img/bebidas/01-coca-cola.png'
 import Bebida_2 from '../../../assets/img/bebidas/02-coca-cola-lata-zero.png'
 import Bebida_3 from '../../../assets/img/bebidas/03-fanta-laranja-lata.png'
 import Bebida_4 from '../../../assets/img/bebidas/04-fanta-uva-lata.png'
 import Bebida_5 from '../../../assets/img/bebidas/05-guarana-lata.png'
-
 import Bebida_6 from '../../../assets/img/bebidas/06-coca-cola-2l.png'
 import Bebida_7 from '../../../assets/img/bebidas/07-cini-framboesa.png'
 import Bebida_8 from '../../../assets/img/bebidas/08-cini-laranjinha.png'
@@ -14,7 +11,7 @@ import Bebida_9 from '../../../assets/img/bebidas/09-cini-abacaixi.png'
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
 
-import { menu } from '../../../components/categoria'
+import { Menu } from '../../../components/carrinho'
 
 interface MenuItemProps {
     type: 'comida' | 'bebida';
@@ -43,7 +40,7 @@ function toastCart() {
 
 function MenuItem({ type, src, alt, nome, descricao, preco, data_name, data_price }: MenuItemProps) {
     return (
-        <div className='flex gap-2'>
+        <div className='flex gap-2' style={{ cursor: 'pointer' }}>
             <div className='w-60 h-30 hover:scale-110 hover:-rotate-2 duration-300'>
                 <img src={src} alt={alt} className='rounded' />
             </div>
@@ -68,15 +65,9 @@ function MenuItem({ type, src, alt, nome, descricao, preco, data_name, data_pric
 }
 
 export function Bebidas() {
-    useEffect(() => {
-        const menuElement = document.getElementById('menu');
-        if (menuElement) {
-            menuElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, []);
 
     return (
-        <main id='menu' onClick={(event) => menu(event as unknown as MouseEvent)}>
+        <div id='menu' onClick={Menu}>
             <div className='items-center justify-center flex flex-col mb-10'>
                 <h2 className='text-4xl font-bold text-center'>Bebidas</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mt-20 mb-16'>
@@ -99,6 +90,6 @@ export function Bebidas() {
                     <MenuItem type="bebida" src={Bebida_9} alt='Cine Abacaxi 2L' nome="Cine Abacaxi 2L" preco='9,00' data_name='Cine Abacaxi 2L' data_price={9.00} />
                 </div>
             </div>
-        </main>
+        </div>
     )
 }
