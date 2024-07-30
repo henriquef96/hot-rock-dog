@@ -1,9 +1,11 @@
 import React, { useState, useEffect, MouseEvent } from 'react';
-import Logo from '../../public/logo.png'
+import Logo from '../../public/logo.png';
 
 interface CartProps {
     name: string;
     price: number;
+    nomeAdc: string;
+    observacao: string;
 }
 
 let cart: CartProps[] = [];
@@ -16,16 +18,18 @@ export function Menu(event: MouseEvent<HTMLButtonElement | HTMLSpanElement>) {
     if (parentButton instanceof HTMLElement) {
         const name = parentButton.getAttribute("data-name");
         const price = parentButton.getAttribute("data-price");
+        const nomeAdc = parentButton.getAttribute("data-nome-adc") || "";
+        const observacao = parentButton.getAttribute("data-observacao") || "";
 
         if (price !== null && name !== null) {
             const priceFloat = parseFloat(price);
-            addToCart(name, priceFloat);
+            addToCart(name, priceFloat, nomeAdc, observacao);
         }
     }
 }
 
-function addToCart(name: string, price: number) {
-    cart.push({ name, price });
+function addToCart(name: string, price: number, nomeAdc: string, observacao: string) {
+    cart.push({ name, price, nomeAdc, observacao });
     updateCartModal();
 }
 
@@ -45,8 +49,8 @@ function updateCartModal() {
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col">
                         <span>Item: ${item.name}</span>
-                        <span>Adicional: </span>
-                        <span>Obs: </span>
+                        <span>Adicional: ${item.nomeAdc}</span>
+                        <span><b>Obs: ${item.observacao}</b></span>
                         <span>R$ ${item.price.toFixed(2)}</span>
                     </div>
                     <button class="remove-btn" data-name="${item.name}">Remover</button>
@@ -87,9 +91,52 @@ function removeFromCart(name: string) {
     updateCartModal();
 }
 
+const DeliveryFee = ({ show, onFeeChange }: { show: boolean, onFeeChange: (fee: number) => void }) => {
+    const [fee, setFee] = useState(0);
+
+    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedFee = Number(event.target.value);
+        setFee(selectedFee);
+        onFeeChange(selectedFee);
+    };
+
+    if (!show) return null;
+
+    return (
+        <div className='mt-5'>
+            <label className='font-bold'>Taxa entrega:</label><br />
+            <select id="taxa-entrega" onChange={handleSelectChange} className='m-1 border p-1 rounded my-1'>
+                <option value="0">Selecione o seu bairro</option>
+                <option value="4">Santa Maria</option>
+                <option value="5">Green Maria</option>
+                <option value="6">Estados</option>
+                <option value="7">Santa Terezinha</option>
+                <option value="8">Iguaçu 1</option>
+                <option value="9">Iguaçu 2</option>
+                <option value="8">Pioneiros</option>
+                <option value="9">Eucaliptos</option>
+                <option value="9">Greenfield</option>
+                <option value="8">Nações</option>
+                <option value="9">Nações 2</option>
+                <option value="7">Gralha</option>
+                <option value="7">Veneza</option>
+            </select>
+            <span>R$ {fee}.00</span>
+        </div>
+    );
+};
+
 export function Carrinho() {
     const [address, setAddress] = useState("");
     const [dateTime, setDateTime] = useState(new Date());
+    const [showDeliveryFields, setShowDeliveryFields] = useState(false);
+    const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [pickup, setPickup] = useState("0");
+    const [showInput, setShowInput] = useState(false);
+    const [showInputTroco, setShowInputTroco] = useState(false);
+    const [paymentMethod, setPaymentMethod] = useState("");
+    const [deliveryFee, setDeliveryFee] = useState(0); // Novo estado para a taxa de entrega
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -115,6 +162,34 @@ export function Carrinho() {
 
     const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setAddress(event.target.value);
+    };
+
+    const handleRetiradaChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = event.target.value;
+        setPickup(value);
+        setShowDeliveryFields(value === "nao");
+    };
+
+    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setName(event.target.value);
+    };
+
+    const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setPhone(event.target.value);
+    };
+
+    const handlePaymentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = event.target.value;
+        setPaymentMethod(value);
+        setShowInput(value === "dinheiro");
+        if (value !== "dinheiro") {
+            setShowInputTroco(false);
+        }
+    };
+
+    const handleTrocoChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = event.target.value;
+        setShowInputTroco(value === "sim");
     };
 
     const validateFields = (): boolean => {
@@ -149,77 +224,71 @@ export function Carrinho() {
         }
 
         const cartItems = cart.map((item) => {
-            return `${item.name} | Preço: R$ ${item.price}\n\n`;
+            const adicionais = item.nomeAdc ? `\nADICIONAL: ${item.nomeAdc}` : '';
+            const observacao = item.observacao ? `\nOBSERVACAO: ${item.observacao}` : '';
+            return `ITEM: ${item.name}${adicionais}${observacao}\nPREÇO: R$ ${item.price.toFixed(2)}\n\n\n`;
         }).join("");
 
         const total = cart.reduce((acc, item) => acc + item.price, 0);
-        const message = encodeURIComponent(`${cartItems}Total: R$ ${total.toFixed(2)}\nEndereço: ${address}`);
-        const phone = "41987479523";
+        const pickupText = pickup === "sim" ? "RETIRADA: SIM" : "RETIRADA: NAO";
+        const addressText = address ? `ENDEREÇO: ${address}` : '';
+        const paymentText = paymentMethod ? `FORMA DE PAGAMENTO: ${paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1)}\n` : '';
+        const deliveryFeeText = deliveryFee > 0 ? `TAXA DE ENTREGA: R$ ${deliveryFee}.00\n` : '';
 
-        window.open(`https://wa.me/${phone}?text=${message}`);
+        const message = encodeURIComponent(
+            `CLIENTE: ${name}\nCONTATO: ${phone}\n\n\n${pickupText}\n${addressText}\n\n${cartItems}${deliveryFeeText}TOTAL: R$ ${total + deliveryFee}.00\n${paymentText}`
+        );
+        const phoneToSend = "41987479523";
+
+        window.open(`https://wa.me/${phoneToSend}?text=${message}`);
     };
 
     return (
         <div id="cart-modal" className="cart-modal bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden" onClick={closeModal}>
-
-            <div className="bg-white p-5 rounded-md min-w-[90%] max-h-[90%] md:min-w-[600px] overflow-auto cart">
-
+            <div className="bg-white rounded-md cart min-w-[90%] max-h-[90%] md:min-w-[600px]">
                 <div className='flex items-center justify-center'>
-                    <img src={Logo} alt="" width="60" className='mb-2'/>
-                    <h2 className="text-center font-bold text-2xl" >Hot Rock Dog</h2>
+                    <img src={Logo} alt="" width="60" className='mb-2' />
+                    <h2 className="text-center font-bold text-2xl">Hot Rock Dog</h2>
                 </div>
-
                 <h2 className="text-center font-bold text-lg">Meu carrinho</h2>
                 <p className="text-center font-bold mb-10">{dateTime.toLocaleString()}</p>
 
                 <div id="cart-items"></div>
 
-                <p className="font-bold">Total: <span id="cart-total">R$ 0.00</span></p>
+                <p className="font-bold text-lg">Total: <span id="cart-total">R$ 0.00</span></p>
 
+                <div className='inputs-info justify-between mt-5'>
+                    <div className='input-nome'>
+                        <p className='font-bold'>Nome: </p>
+                        <input type="text" placeholder="Digite seu nome..." className="border rounded p-1 my-1" value={name} onChange={handleNameChange} />
+                    </div>
+                    <div>
+                        <p className='font-bold'>Contato: </p>
+                        <input type="number" placeholder="Digite seu contato..." className="border rounded p-1 my-1" value={phone} onChange={handlePhoneChange} />
+                    </div>
+                </div>
+
+                <div id="retirada" className='mt-5'>
+                    <label className='font-bold'>Retirada? </label><br />
+                    <select className='m-1 border p-1 rounded my-1' onChange={handleRetiradaChange}>
+                        <option value="0">--</option>
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </div>
+
+                {showDeliveryFields && (
+                    <div>
+                        <p className="font-bold mt-5">Endereço:</p>
+                        <input id='input-address' type="text" placeholder="Digite seu endereço completo..." className="w-full border p-1 rounded my-1" value={address} onChange={handleAddressChange} />
+                        <DeliveryFee show={showDeliveryFields} onFeeChange={setDeliveryFee} />
+                    </div>
+                )}
 
                 <div className='flex justify-between mt-5'>
-                    <div className='flex flex-col input-nome'>
-                        <p className='font-bold'>Nome: </p>
-                        <input type="text" placeholder="Digite seu nome..." className="border p-1 rounded my-1 " />
-                    </div>
-
-                    <div className='flex flex-col input-contato'>
-                        <p className='font-bold'>Contato: </p>
-                        <input type="text" placeholder="Digite seu contato..." className="border p-1 rounded my-1 mb-5" />
-                    </div>
-                </div>
-
-                <p className="font-bold">Endereço:</p>
-
-                <input id='input-adress' type="text" placeholder="Digite seu endereço completo..." className="w-full border p-1 rounded my-1" value={address} onChange={handleAddressChange} />
-
-
-                <div className='mt-3'>
-                    <label className='font-bold'>Taxa entrega:</label><br />
-                    <select name="pagamento" id="pagamento">
-                        <option value="0">Selecion</option>
-                        <option value="1">Bairro 1</option>
-                        <option value="2">Bairro 2</option>
-                        <option value="3">Bairro 3</option>
-                        <option value="4">Bairro 4</option>
-                    </select>
-                    <span>R$ 0.00</span>
-                </div>
-
-                <div className='flex justify-between mt-3'>
-                    <div>
-                        <label className='font-bold'>Precisa de Troco?</label><br />
-                        <select name="troco" id="troco">
-                            <option value="0">--</option>
-                            <option value="sim">Sim</option>
-                            <option value="nao">Não</option>
-                        </select>
-                        <input className='m-1' style={{ width: '100px' }} type="text" placeholder='Valor' />
-                    </div>
-
-                    <div>
+                    <div id="pagamento">
                         <label className='font-bold'>Forma Pagamento</label><br />
-                        <select name="pagamento" id="pagamento">
+                        <select className='m-1 border p-1 rounded my-1' onChange={handlePaymentChange}>
                             <option value="0">--</option>
                             <option value="credito">Crédito</option>
                             <option value="debito">Débito</option>
@@ -227,15 +296,20 @@ export function Carrinho() {
                             <option value="dinheiro">Dinheiro</option>
                         </select>
                     </div>
-                </div>
 
-                <div className='mt-3 flex justify-end'>
-                    <label className='font-bold'>Retirada? </label><br />
-                    <select name="pagamento" id="pagamento">
-                        <option value="0">--</option>
-                        <option value="sim">Sim</option>
-                        <option value="nao">Não</option>
-                    </select>
+                    {showInput && (
+                        <div id="troco">
+                            <label className='font-bold'>Precisa de Troco?</label><br />
+                            <select className='m-1 border p-1 rounded my-1' onChange={handleTrocoChange}>
+                                <option value="0">--</option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                            {showInputTroco && (
+                                <input id='input-troco' className='m-1 border p-1 rounded my-1' type="text" placeholder='Ex: R$ 50' style={{ width: 80 }} />
+                            )}
+                        </div>
+                    )}
                 </div>
 
                 <div className="flex items-center justify-between mt-5 w-full">

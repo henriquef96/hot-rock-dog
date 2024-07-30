@@ -1,22 +1,10 @@
-video {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
-
-.img-modal-menu {
-    overflow-y: scroll;
-}
-
-.img-modal-menu::-webkit-scrollbar {
-    width: 0px;
-}
-
 @keyframes animacao-cardapio {
     from {
         top: 0px;
     }
 
     to {
-        top: 10px;
+        top: 5px;
     }
 }
 
@@ -30,12 +18,6 @@ video {
 
 .div-categoria {
     max-width: 1260px;
-}
-
-.bg-obs {
-    background-color: transparent;
-    border: 1px solid rgb(150, 150, 150);
-    border-radius: 5px;
 }
 
 .bg-categoria {
@@ -61,46 +43,31 @@ video {
     background-color: #f3f3f3
 }
 
-.obs-cart::-webkit-scrollbar {
-    width: 0px;
+input {
+    background-color: #f3f3f3;
 }
 
-.obs-cart {
-    width: 150px;
-    height: 50px;
-    word-wrap: break-word;
-    white-space: normal;
+select {
+    background-color: #f3f3f3;
+    margin-right: 10px;
+}
+
+.img-modal-menu {
     overflow-y: scroll;
+}
+
+.img-modal-menu::-webkit-scrollbar {
+    width: 0px;
 }
 
 .cart-add {
     margin-left: 5px;
 }
 
-.modal-menu::-webkit-scrollbar {
-    width: 5px;
-}
-
-.modal-menu::-webkit-scrollbar-track {
-    background: #f3f3f3;
-}
-
-
-.modal-menu::-webkit-scrollbar-thumb {
-    background-color: #d3d3d3;
-    border-radius: 2px;
-}
-
-.modal-menu::-webkit-scrollbar-thumb:hover {
-    cursor: pointer;
-    background-color: #c0c0c0;
-}
-
 .bg-modal-adc {
     overflow-y: scroll;
     height: 125px;
 }
-
 
 .btn-close {
     justify-content: end;
@@ -124,7 +91,6 @@ video {
     transform: scale(0.98);
 }
 
-
 .bg-modal-adc::-webkit-scrollbar {
     width: 5px;
 }
@@ -142,7 +108,6 @@ video {
     cursor: pointer;
     background-color: #929292;
 }
-
 
 .detalhes-menu {
     padding: 0px 50px 50px 50px;
@@ -182,41 +147,39 @@ video {
 }
 
 .cart {
-    max-width: 150px;
-    overflow-x: hidden;
+    background-color: #f3f3f3;
+    padding: 10px 50px 50px 50px;
+    overflow-y: scroll;
+}
+
+.fa-x:hover{
+    color: #C80000;
 }
 
 .cart::-webkit-scrollbar {
-    width: 10px;
-}
-
-.cart-modal::-webkit-scrollbar {
     width: 5px;
 }
 
-.cart-modal
-::-webkit-scrollbar-track {
-    background: #bbbbbb;
+.cart::-webkit-scrollbar {
+    width: 5px;
 }
 
-.cart-modal
-::-webkit-scrollbar-thumb {
+.cart::-webkit-scrollbar-track {
+    background: #d3d3d3;
+}
+
+.cart::-webkit-scrollbar-thumb {
     background-color: #a7a7a7;
     border-radius: 2px;
 }
 
-.cart-modal
-::-webkit-scrollbar-thumb:hover {
+.cart::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
     background-color: #929292;
 }
 
-.input-contato {
-    margin-left: 5px;
-}
-
-.input-nome {
-    margin-right: 5px;
+.inputs-info {
+    display: flex;
 }
 
 @media screen and (max-width: 1023px) {
@@ -239,7 +202,6 @@ video {
     .detalhes-menu {
         overflow-y: scroll;
     }
-
 }
 
 @media screen and (max-width: 639px) {
@@ -250,5 +212,13 @@ video {
 
     .itens-categoria {
         color: black;
+    }
+
+    .inputs-info {
+        flex-direction: column;
+    }
+
+    .input-nome {
+        margin-bottom: 10px;
     }
 }

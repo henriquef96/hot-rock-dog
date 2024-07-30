@@ -25,6 +25,8 @@ interface DetalhesMenuProps {
 
 export function DetalhesMenu({ type, nome, preco }: DetalhesMenuProps) {
     const [valorAdicional, setValorAdicional] = useState(0);
+    const [observacao, setObservacao] = useState("");
+    const [nomeAdc, setNomeAdc] = useState("");
 
     useEffect(() => {
         const plusButtons = document.querySelectorAll<HTMLButtonElement>('.fa-plus');
@@ -33,9 +35,9 @@ export function DetalhesMenu({ type, nome, preco }: DetalhesMenuProps) {
         const handlePlusClick = (event: MouseEvent): void => {
             const button = event.currentTarget as HTMLElement;
             const dataPriceAdc = parseFloat(button.getAttribute('data-price-adc') || "0");
-            const dataNameAdc = button.getAttribute('data-name-adc')
+            const dataNameAdc = (button.getAttribute('data-name-adc'))
+            setNomeAdc(dataNameAdc || "")
             setValorAdicional(prevValor => prevValor + dataPriceAdc);
-            console.log(dataNameAdc)
         };
 
         const handleMinusClick = (event: MouseEvent): void => {
@@ -104,24 +106,10 @@ export function DetalhesMenu({ type, nome, preco }: DetalhesMenuProps) {
     const handleAddToCart = () => {
         const totalPrice = preco + valorAdicional;
         toastCart();
-        preco = totalPrice
+        totalPrice.toFixed(2);
         setValorAdicional(0);
+        setObservacao("");
     };
-
-
-    // const [selectedItem, setSelectedItem] = useState<{ nome: string; preco: number } | null>(null);
-
-    // const handleMenuItemClick = (nome: string, preco: number) => {
-    //     setSelectedItem({ nome, preco });
-    // };
-
-    // onClick = { handleMenuItemClick }
-
-    // {
-    //     selectedItem && (
-    //         <DetalhesMenu type='hamburger' nome={selectedItem.nome} preco={selectedItem.preco} />
-    //     )
-    // }
 
     return (
         <div id="menu-modal" className="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden p-5" onClick={closeModal}>
@@ -138,11 +126,24 @@ export function DetalhesMenu({ type, nome, preco }: DetalhesMenuProps) {
                             <h1 className='font-bold text-lg text-center'>{nome}</h1>
                             <div className='flex flex-col mt-5'>
                                 <span className='font-bold text-sm'>Observações</span>
-                                <textarea className='border rounded mt-1 bg-obs text-sm p-1' placeholder="Ex: tirar cebola, etc."></textarea>
+                                <input
+                                    className='border rounded mt-1 bg-obs text-sm p-1'
+                                    placeholder="Ex: tirar cebola, etc."
+                                    value={observacao}
+                                    onChange={(e) => setObservacao(e.target.value)}
+                                />
                             </div>
                             <div className='mt-5'>
                                 <span className='font-bold'>Total: <span>R$ {preco.toFixed(2)}</span></span>
-                                <button data-name={nome} data-price={preco} className='w-full rounded bg-red text-white add-to-cart-btn p-1 mt-1 cart-btn' onClick={handleAddToCart}>Adicionar</button>
+                                <button
+                                    data-name={nome}
+                                    data-price={preco}
+                                    data-observacao={observacao}
+                                    className='w-full rounded bg-red text-white add-to-cart-btn p-1 mt-1 cart-btn'
+                                    onClick={handleAddToCart}
+                                >
+                                    Adicionar
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -182,13 +183,24 @@ export function DetalhesMenu({ type, nome, preco }: DetalhesMenuProps) {
                             </div>
                             <div className='flex flex-col mt-5'>
                                 <span className='font-bold text-sm'>Observações</span>
-                                <textarea data-obs="data_obs" className='border rounded mt-1 bg-obs text-sm p-1' placeholder="Ex: tirar cebola, etc."></textarea>
+                                <input
+                                    className='border rounded mt-1 bg-obs text-sm p-1'
+                                    placeholder="Ex: tirar cebola, etc."
+                                    value={observacao}
+                                    onChange={(e) => setObservacao(e.target.value)}
+                                />
                             </div>
 
                             <div className='mt-5'>
                                 <span className='font-bold'>Total: <span>R$ {(preco + valorAdicional).toFixed(2)}</span></span>
 
-                                <button data-name={nome} data-price={(preco + valorAdicional).toFixed(2)} className='w-full rounded bg-red text-white add-to-cart-btn cart-btn p-1 mt-1' onClick={handleAddToCart}>
+                                <button
+                                    data-name={nome}
+                                    data-price={(preco + valorAdicional).toFixed(2)}
+                                    data-nome-adc={nomeAdc}
+                                    data-observacao={observacao}
+                                    className='w-full rounded bg-red text-white add-to-cart-btn cart-btn p-1 mt-1'
+                                    onClick={handleAddToCart}>
                                     Adicionar<i className="cart-add fas fa-cart-plus"></i>
                                 </button>
                             </div>

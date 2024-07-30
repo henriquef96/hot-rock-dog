@@ -83,11 +83,11 @@ export function Bebidas() {
 
                     <MenuItem type="bebida" src={Bebida_6} alt='Coca Cola 2L' nome="Coca Cola 2L" preco='14,00' data_name='Coca Cola 2L' data_price={14.00} />
 
-                    <MenuItem type="bebida" src={Bebida_7} alt='Cini Framboesa 2L' nome="Cini Framboesa 2L" preco='9,00' data_name='Cini Framboesa 2L' data_price={9.00} />
+                    <MenuItem type="bebida" src={Bebida_7} alt='Cini Framboesa 2L' nome="Cini Framboesa 2L" preco='8,00' data_name='Cini Framboesa 2L' data_price={8.00} />
 
-                    <MenuItem type="bebida" src={Bebida_8} alt='Cine Laranjinha 2L' nome="Cine Laranjinha 2L" preco='9,00' data_name='Cine Laranjinha 2L' data_price={9.00} />
+                    <MenuItem type="bebida" src={Bebida_8} alt='Cine Laranjinha 2L' nome="Cine Laranjinha 2L" preco='8,00' data_name='Cine Laranjinha 2L' data_price={8.00} />
 
-                    <MenuItem type="bebida" src={Bebida_9} alt='Cine Abacaxi 2L' nome="Cine Abacaxi 2L" preco='9,00' data_name='Cine Abacaxi 2L' data_price={9.00} />
+                    <MenuItem type="bebida" src={Bebida_9} alt='Cine Abacaxi 2L' nome="Cine Abacaxi 2L" preco='8,00' data_name='Cine Abacaxi 2L' data_price={9.00} />
                 </div>
             </div>
         </div>
