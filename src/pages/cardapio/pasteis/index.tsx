@@ -30,13 +30,15 @@ export function Pasteis() {
     return (
         <div id='menu' onClick={Menu}>
             <div className='items-center justify-center flex flex-col mb-10'>
-                <h2 className='text-4xl font-bold text-center'>Pasteis</h2>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mt-20 mb-16'>
+                <h2 className='mt-5 text-4xl font-bold text-center'>PASTEIS</h2>
+                <p className='mt-5 mb-5 text-gray text-center text-sm'>Clique na imagem para adicionais.</p>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16' style={{ marginTop: '50px' }}>
+
                     <MenuItem
                         type="comida"
                         src={Pastel_1}
                         alt='Carne Queijo'
-                        nome="Carne Queijo"
+                        nome="Pastel Carne Queijo"
                         preco='12,00'
                         data_name='Carne Queijo'
                         data_price={12.00}
@@ -48,7 +50,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_2}
                         alt='Especial'
-                        nome="Especial"
+                        nome="Pastel Especial"
                         preco='17,00'
                         data_name='Especial'
                         data_price={17.00}
@@ -60,7 +62,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_3}
                         alt='Frango Cheddar'
-                        nome="Frango Cheddar"
+                        nome="Pastel Frango Cheddar"
                         preco='13,00'
                         data_name='Frango Cheddar'
                         data_price={13.00}
@@ -72,7 +74,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_4}
                         alt='Queijo e Goiabada'
-                        nome="Queijo Goiabada"
+                        nome="Pastel Queijo Goiabada"
                         preco='14,00'
                         data_name='Queijo Goiabada'
                         data_price={14.00}
@@ -84,7 +86,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_5}
                         alt='Queijo'
-                        nome="Queijo"
+                        nome="Pastel Queijo"
                         preco='12,00'
                         data_name='Queijo'
                         data_price={12.00}
@@ -96,7 +98,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_6}
                         alt='Frango Catupiry'
-                        nome="Frango Catupiry"
+                        nome="Pastel Frango Catupiry"
                         preco='13,00'
                         data_name='Frango Catupiry'
                         data_price={13.00}
@@ -108,7 +110,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_7}
                         alt='Calabresa'
-                        nome="Calabresa"
+                        nome="Pastel Calabresa"
                         preco='12,00'
                         data_name='Calabresa'
                         data_price={12.00}
@@ -120,7 +122,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_8}
                         alt='Frango'
-                        nome="Frango"
+                        nome="Pastel Frango"
                         preco='12,00'
                         data_name='Frango'
                         data_price={12.00}
@@ -132,7 +134,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_9}
                         alt='Pizza'
-                        nome="Pizza"
+                        nome="Pastel Pizza"
                         preco='13,00'
                         data_name='Pizza'
                         data_price={13.00}
@@ -144,7 +146,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_10}
                         alt='Carne'
-                        nome="Carne"
+                        nome="Pastel Carne"
                         preco='12,00'
                         data_name='Carne'
                         data_price={13.00}
@@ -156,7 +158,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_11}
                         alt='Bacon Queijo'
-                        nome="Bacon Queijo"
+                        nome="Pastel Bacon Queijo"
                         preco='14,00'
                         data_name='Bacon Queijo'
                         data_price={14.00}
@@ -168,7 +170,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_12}
                         alt='Chocolate Branco'
-                        nome="Chocolate Branco"
+                        nome="Pastel Chocolate Branco"
                         preco='14,00'
                         data_name='Chocolate Branco'
                         data_price={14.00}
@@ -180,7 +182,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_13}
                         alt='Chocolate Preto'
-                        nome="Chocolate Preto"
+                        nome="Pastel Chocolate Preto"
                         preco='14,00'
                         data_name='Chocolate Preto'
                         data_price={14.00}
@@ -192,7 +194,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_14}
                         alt='Dois Amores'
-                        nome="Dois Amores"
+                        nome="Pastel Dois Amores"
                         preco='14,00'
                         data_name='Dois Amores'
                         data_price={14.00}
@@ -204,7 +206,7 @@ export function Pasteis() {
                         type="comida"
                         src={Pastel_15}
                         alt='Paçoca'
-                        nome="Paçoca"
+                        nome="Pastel Paçoca"
                         preco='14,00'
                         data_name='Paçoca'
                         data_price={14.00}

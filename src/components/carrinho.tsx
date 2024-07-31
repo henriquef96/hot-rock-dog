@@ -269,11 +269,11 @@ export function Carrinho() {
                 </div>
 
                 <div id="retirada" className='mt-5'>
-                    <label className='font-bold'>Retirada? </label><br />
+                    <label className='font-bold'>Entrega\Retirada</label><br />
                     <select className='m-1 border p-1 rounded my-1' onChange={handleRetiradaChange}>
                         <option value="0">--</option>
-                        <option value="sim">Sim</option>
-                        <option value="nao">Não</option>
+                        <option value="sim">Entrega</option>
+                        <option value="nao">Retirada</option>
                     </select>
                 </div>
 

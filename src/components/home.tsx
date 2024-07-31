@@ -81,7 +81,7 @@ export function Home() {
             <div className='z-10 flex flex-col justify-center items-center'>
                 <div className='flex flex-col justify-center items-center mb-16'>
                     <img src={Logo} alt="Logo" className='w-32 h-32 rounded-full hover:rotate-2 hover:scale-110 duration-300' />
-                    <h1 className='text-4xl mt-4 mb-2 font-bold text-gray-200'>Hot Rock Dog</h1>
+                    <h1 className='text-4xl mt-4 mb-2 font-bold text-gray-200'>HOT ROCK DOG</h1>
                     <span className='text-gray-200'><i className="fa-solid fa-location-dot mr-1 text-red"></i>Rua Curitiba, 520 - Fazenda Rio Grande - PR</span>
                     <div className={`px-4 py-1 rounded-lg mt-5 ${statusClass}`}>
                         <span className='text-gray-200'>Ter a Dom - 19:00 às 23:00</span>

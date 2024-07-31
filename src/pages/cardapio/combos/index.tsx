@@ -20,8 +20,9 @@ export function Combos() {
   return (
     <div id='menu' onClick={Menu}>
       <div className='items-center justify-center flex flex-col mb-10'>
-        <h2 className='text-4xl font-bold text-center'>Promoção do dia</h2>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mt-20 mb-16'>
+        <h2 className='text-4xl font-bold text-center mt-5'>PROMOÇÃO DO DIA</h2>
+        <p className='mt-5 mb-5 text-gray text-center text-sm'>Clique na imagem para alguma observação.</p>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16' style={{ marginTop: '50px' }}>
 
           <MenuItem
             type="comida"

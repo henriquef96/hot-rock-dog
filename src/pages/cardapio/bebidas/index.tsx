@@ -69,7 +69,7 @@ export function Bebidas() {
     return (
         <div id='menu' onClick={Menu}>
             <div className='items-center justify-center flex flex-col mb-10'>
-                <h2 className='text-4xl font-bold text-center'>Bebidas</h2>
+                <h2 className='text-4xl font-bold text-center mt-5'>BEBIDAS</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mt-20 mb-16'>
                     <MenuItem type="bebida" src={Bebida_1} alt='Coca Cola 350ml' nome="Coca Cola 350ml" preco='6,00' data_name='Coca Cola 350ml' data_price={6.00} />
 
