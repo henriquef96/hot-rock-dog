@@ -37,10 +37,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_1}
-                        alt='Carne Queijo'
+                        alt='Pastel Carne Queijo'
                         nome="Pastel Carne Queijo"
                         preco='12,00'
-                        data_name='Carne Queijo'
+                        data_name='Pastel Carne Queijo'
                         data_price={12.00}
                         descricao="Delicioso pastel sabor carne com queijo tamanho 22cmx10cm"
                         onClick={handleMenuItemClick}
@@ -49,10 +49,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_2}
-                        alt='Especial'
+                        alt='Pastel Especial'
                         nome="Pastel Especial"
                         preco='17,00'
-                        data_name='Especial'
+                        data_name='Pastel Especial'
                         data_price={17.00}
                         descricao="Pastel especial 22cmx10cm, carne, queijo, azeitona e ovo"
                         onClick={handleMenuItemClick}
@@ -61,10 +61,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_3}
-                        alt='Frango Cheddar'
+                        alt='Pastel Frango Cheddar'
                         nome="Pastel Frango Cheddar"
                         preco='13,00'
-                        data_name='Frango Cheddar'
+                        data_name='Pastel Frango Cheddar'
                         data_price={13.00}
                         descricao="Delicioso pastel de frango com cheddar tamanho 22cmx10cm"
                         onClick={handleMenuItemClick}
@@ -73,10 +73,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_4}
-                        alt='Queijo e Goiabada'
+                        alt='Pastel Queijo e Goiabada'
                         nome="Pastel Queijo Goiabada"
                         preco='14,00'
-                        data_name='Queijo Goiabada'
+                        data_name='Pastel Queijo Goiabada'
                         data_price={14.00}
                         descricao="Delicioso pastel sabor queijo com goiabada tamanho 22cmx10cm"
                         onClick={handleMenuItemClick}
@@ -85,10 +85,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_5}
-                        alt='Queijo'
+                        alt='Pastel Queijo'
                         nome="Pastel Queijo"
                         preco='12,00'
-                        data_name='Queijo'
+                        data_name='Pastel Queijo'
                         data_price={12.00}
                         descricao="Delicioso pastel crocante sabor queijo tamanho 22cmx10cm"
                         onClick={handleMenuItemClick}
@@ -97,10 +97,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_6}
-                        alt='Frango Catupiry'
+                        alt='Pastel Frango Catupiry'
                         nome="Pastel Frango Catupiry"
                         preco='13,00'
-                        data_name='Frango Catupiry'
+                        data_name='Pastel Frango Catupiry'
                         data_price={13.00}
                         descricao="Delicioso pastel sabor frango com Catupiry tamanho 22cmx10cm"
                         onClick={handleMenuItemClick}
@@ -109,10 +109,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_7}
-                        alt='Calabresa'
+                        alt='Pastel Calabresa'
                         nome="Pastel Calabresa"
                         preco='12,00'
-                        data_name='Calabresa'
+                        data_name='Pastel Calabresa'
                         data_price={12.00}
                         descricao="Delicioso pastel crocante sabor calabresa tamanho 22cmx10cm"
                         onClick={handleMenuItemClick}
@@ -121,10 +121,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_8}
-                        alt='Frango'
+                        alt='Pastel Frango'
                         nome="Pastel Frango"
                         preco='12,00'
-                        data_name='Frango'
+                        data_name='Pastel Frango'
                         data_price={12.00}
                         descricao="Delicioso pastel crocante sabor frango tamanho 22cmx10cm"
                         onClick={handleMenuItemClick}
@@ -133,10 +133,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_9}
-                        alt='Pizza'
+                        alt='Pastel Pizza'
                         nome="Pastel Pizza"
                         preco='13,00'
-                        data_name='Pizza'
+                        data_name='Pastel Pizza'
                         data_price={13.00}
                         descricao="Delicioso pastel crocante sabor pizza tamanho 22cmx10cm"
                         onClick={handleMenuItemClick}
@@ -145,10 +145,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_10}
-                        alt='Carne'
+                        alt='Pastel Carne'
                         nome="Pastel Carne"
                         preco='12,00'
-                        data_name='Carne'
+                        data_name='Pastel Carne'
                         data_price={13.00}
                         descricao="Delicioso pastel crocante sabor carne tamanho 22cmx10cm"
                         onClick={handleMenuItemClick}
@@ -157,10 +157,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_11}
-                        alt='Bacon Queijo'
+                        alt='Pastel Bacon Queijo'
                         nome="Pastel Bacon Queijo"
                         preco='14,00'
-                        data_name='Bacon Queijo'
+                        data_name='Pastel Bacon Queijo'
                         data_price={14.00}
                         descricao="Delicioso pastel sabor bacon com queijo tamanho 22cmx10cm"
                         onClick={handleMenuItemClick}
@@ -169,10 +169,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_12}
-                        alt='Chocolate Branco'
+                        alt='Pastel Chocolate Branco'
                         nome="Pastel Chocolate Branco"
                         preco='14,00'
-                        data_name='Chocolate Branco'
+                        data_name='Pastel Chocolate Branco'
                         data_price={14.00}
                         descricao="Delicioso pastel sabor chocolate branco tamanho 22cmx10xcm"
                         onClick={handleMenuItemClick}
@@ -181,10 +181,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_13}
-                        alt='Chocolate Preto'
+                        alt='Pastel Chocolate Preto'
                         nome="Pastel Chocolate Preto"
                         preco='14,00'
-                        data_name='Chocolate Preto'
+                        data_name='Pastel Chocolate Preto'
                         data_price={14.00}
                         descricao="Delicioso pastel sabor chocolate preto tamanho 22cmx10xcm"
                         onClick={handleMenuItemClick}
@@ -193,10 +193,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_14}
-                        alt='Dois Amores'
+                        alt='Pastel Dois Amores'
                         nome="Pastel Dois Amores"
                         preco='14,00'
-                        data_name='Dois Amores'
+                        data_name='Pastel Dois Amores'
                         data_price={14.00}
                         descricao="Delicioso pastel sabor chocolate branco e preto 22cmx10xcm"
                         onClick={handleMenuItemClick}
@@ -205,10 +205,10 @@ export function Pasteis() {
                     <MenuItem
                         type="comida"
                         src={Pastel_15}
-                        alt='Paçoca'
+                        alt='Pastel Paçoca'
                         nome="Pastel Paçoca"
                         preco='14,00'
-                        data_name='Paçoca'
+                        data_name='Pastel Paçoca'
                         data_price={14.00}
                         descricao="Delicioso pastel crcante sabor paçoca 22cmx10xcm"
                         onClick={handleMenuItemClick}

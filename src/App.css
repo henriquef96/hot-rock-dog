@@ -152,7 +152,7 @@ select {
     overflow-y: scroll;
 }
 
-.fa-x:hover{
+.fa-x:hover {
     color: #C80000;
 }
 
@@ -180,6 +180,13 @@ select {
 
 .inputs-info {
     display: flex;
+}
+
+.btn-close-cart {
+    background-color: rgb(255, 70, 70);
+    padding: 5px;
+    border-radius: 4px;
+    color: white;
 }
 
 @media screen and (max-width: 1023px) {

@@ -109,7 +109,7 @@ export function DetalhesMenu({ type, nome, preco }: DetalhesMenuProps) {
         totalPrice.toFixed(2);
         setValorAdicional(0);
         setObservacao("");
-        handleCloseModalBtn(); // Close the modal
+        handleCloseModalBtn();
     };
 
     return (
@@ -181,6 +181,7 @@ export function DetalhesMenu({ type, nome, preco }: DetalhesMenuProps) {
                                     </>
                                 )}
                             </div>
+
                             <div className='flex flex-col mt-5'>
                                 <span className='font-bold text-sm'>Observações</span>
                                 <input

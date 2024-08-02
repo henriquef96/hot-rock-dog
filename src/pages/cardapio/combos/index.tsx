@@ -32,7 +32,7 @@ export function Combos() {
             preco='59,90'
             data_name='Combo Completão'
             data_price={59.90}
-            descricao='4 Dog Calabresa + Cini 2 Litros'
+            descricao='2 Completão + Cini 2 Litros'
             onClick={handleMenuItemClick} />
 
           <MenuItem

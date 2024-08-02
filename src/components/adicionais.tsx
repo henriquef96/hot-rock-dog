@@ -47,5 +47,7 @@ export function Adicionais({ adicional, valor, data_price_adc, data_name_adc }: 
 
             <i className='fas fa-minus' onClick={toastRemove} data-price-adc={data_price_adc}></i>
         </div>
+
+
     )
 }

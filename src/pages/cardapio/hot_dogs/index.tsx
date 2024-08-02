@@ -36,11 +36,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_1}
-            alt='Tradicional'
+            alt='Dog Tradicional'
             nome='Dog Tradicional'
             descricao='1 pão 15cm, 1 vina perdigão, maionese caseira, milho tomate picado, farofa especial, catchup, mostarda, batata palha crocante'
             preco='12,00'
-            data_name='Tradicional'
+            data_name='Dog Tradicional'
             data_price={12.00}
             onClick={handleMenuItemClick}
           />
@@ -48,11 +48,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_2}
-            alt='Duplo'
+            alt='Dog Duplo'
             nome='Dog Duplo'
             descricao='1 pão 15cm, 2 vinas perdigão, maionese caseira, milho, tomate picado, farofa especial, catchup, mostarda, batata palha crocante'
             preco='14,00'
-            data_name='Duplo'
+            data_name='Dog Duplo'
             data_price={14.00}
             onClick={handleMenuItemClick}
           />
@@ -60,11 +60,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_3}
-            alt='Frango'
+            alt='Dog Frango'
             nome='Dog Frango'
             descricao='1 pão 15cm, 1 vina perdigão, maionese, milho, tomate, farofa, frango desfiado, catchup, mostarda, batata palha'
             preco='15,00'
-            data_name='Frango'
+            data_name='Dog Frango'
             data_price={15.00}
             onClick={handleMenuItemClick}
           />
@@ -72,11 +72,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_4}
-            alt='Bacon'
+            alt='Dog Bacon'
             nome='Dog Bacon'
             descricao='1 pão 15cm, 1 vina perdigão, maionese caseira, milho, tomate, farofa especial, bacon em cubos, catchup, mostarda, batata palha'
             preco='15,00'
-            data_name='Bacon'
+            data_name='Dog Bacon'
             data_price={15.00}
             onClick={handleMenuItemClick}
           />
@@ -84,11 +84,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_5}
-            alt='Calabresa'
+            alt='Dog Calabresa'
             nome='Dog Calabresa'
             descricao='1 pão 15cm, 1 vina perdigão, maionese caseira, milho, tomate, farofa, calabresa em cubos, catchup, mostarda, batata palha'
             preco='15,00'
-            data_name='Calabresa'
+            data_name='Dog Calabresa'
             data_price={15.00}
             onClick={handleMenuItemClick}
           />
@@ -96,11 +96,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_6}
-            alt='Lombinho'
+            alt='Dog Lombinho'
             nome='Dog Lombinho'
             descricao='1 pão 15cm, 1 vina perdigão, maionese caseira, milho, tomate picado, lombinho, farofa especial, catchup, batata palha crocante'
             preco='15,00'
-            data_name='Lombinho'
+            data_name='Dog Lombinho'
             data_price={15.00}
             onClick={handleMenuItemClick}
           />
@@ -108,11 +108,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_7}
-            alt='Frango Cheddar'
+            alt='Dog Frango Cheddar'
             nome='Dog Frango Cheddar'
             descricao='1 pão 15cm, 1 vina perdigão, maionese, milho, tomate, farofa, frango desfiado com cheddar, catchup, mostarda, batata palha'
             preco='15,00'
-            data_name='Frango Cheddar'
+            data_name='Dog Frango Cheddar'
             data_price={15.00}
             onClick={handleMenuItemClick}
           />
@@ -120,11 +120,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_8}
-            alt='Frango Catupiry'
+            alt='Dog Frango Catupiry'
             nome='Dog Frango Catupiry'
             descricao='1 pão 15cm, 1 vina perdigão, maionese, milho, tomate, farofa, frango desfiado com cheddar, catchup, mostarda, batata palha'
             preco='15,00'
-            data_name='Frango Catupiry'
+            data_name='Dog Frango Catupiry'
             data_price={15.00}
             onClick={handleMenuItemClick}
           />
@@ -132,11 +132,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_9}
-            alt='Frango Bacon'
+            alt='Dog Frango Bacon'
             nome='Dog Frango Bacon'
             descricao='1 pão 15cm, 1 vina perdigão, maionese, milho, tomate, farofa especial, frango desfiado, bacon, catchup, mostarda, batata palha'
             preco='18,00'
-            data_name='Frango Bacon'
+            data_name='Dog Frango Bacon'
             data_price={18.00}
             onClick={handleMenuItemClick}
           />
@@ -144,11 +144,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_10}
-            alt='Frango Calabresa'
+            alt='Dog Frango Calabresa'
             nome='Dog Frango Calabresa'
             descricao='1 pão 15cm, 1 vina perdigão, maionese, milho, tomate, farofa, frango desfiado, calabresa, catchup, mostarda, batata palha'
             preco='17,00'
-            data_name='Frango Calabresa'
+            data_name='Dog Frango Calabresa'
             data_price={17.00}
             onClick={handleMenuItemClick}
           />
@@ -156,11 +156,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_11}
-            alt='Bacon Calabresa'
+            alt='Dog Bacon Calabresa'
             nome='Dog Bacon Calabresa'
             descricao='1 pão 15cm, 1 vina perdigão, maionese, milho, tomate, farofa, bacon e calabresa em cubos, catchup, mostarda, batata palha'
             preco='18,00'
-            data_name='Bacon Calabresa'
+            data_name='Dog Bacon Calabresa'
             data_price={18.00}
             onClick={handleMenuItemClick}
           />
@@ -168,11 +168,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_12}
-            alt='Lombinho Bacon'
+            alt='Dog Lombinho Bacon'
             nome='Dog Lombinho Bacon'
             descricao='1 pão 15cm, 1 vina perdigão, maionese, milho, tomate, lombinho, bacon em tiras, farofa, catchup, batata palha'
             preco='20,00'
-            data_name='Lombinho Bacon'
+            data_name='Dog Lombinho Bacon'
             data_price={20.00}
             onClick={handleMenuItemClick}
           />
@@ -180,11 +180,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_13}
-            alt='Bacon Queijo'
+            alt='Dog Bacon Queijo'
             nome='Dog Bacon Queijo'
             descricao='1 pão 15cm, 1 vina perdigão, maionese, milho, tomate, bacon, queijo derretido, farofa especial, catchup, batata palha crocante'
             preco='20,00'
-            data_name='Bacon Queijo'
+            data_name='Dog Bacon Queijo'
             data_price={20.00}
             onClick={handleMenuItemClick}
           />
@@ -192,11 +192,11 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_14}
-            alt='Completão'
+            alt='Dog Completão'
             nome='Dog Completão'
             descricao='1 pão 20cm, 2 vinas perdigão, maionese, milho, tomate, frango, calabresa, bacon, requeijão, cheddar, farofa , batata palha'
             preco='28,00'
-            data_name='Completão'
+            data_name='Dog Completão'
             data_price={28.00}
             onClick={handleMenuItemClick}
           />

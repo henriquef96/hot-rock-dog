@@ -45,12 +45,15 @@ function updateCartModal() {
 
             cartItemElement.classList.add("mb-5");
 
+            let adicionaisText = item.nomeAdc ? `<span>Adicional: ${item.nomeAdc}</span>` : '';
+            let observacaoText = item.observacao ? `<span><b>Obs: ${item.observacao}</b></span>` : '';
+
             cartItemElement.innerHTML = `
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col">
-                        <span>Item: ${item.name}</span>
-                        <span>Adicional: ${item.nomeAdc}</span>
-                        <span><b>Obs: ${item.observacao}</b></span>
+                        <span>${item.name}</span>
+                        ${adicionaisText}
+                        ${observacaoText}
                         <span>R$ ${item.price.toFixed(2)}</span>
                     </div>
                     <button class="remove-btn" data-name="${item.name}">Remover</button>
@@ -83,6 +86,7 @@ function updateCartModal() {
     }
 }
 
+
 function removeFromCart(name: string) {
     const item = cart.find(item => item.name === name);
     if (item) {
@@ -91,13 +95,14 @@ function removeFromCart(name: string) {
     updateCartModal();
 }
 
-const DeliveryFee = ({ show, onFeeChange }: { show: boolean, onFeeChange: (fee: number) => void }) => {
+const DeliveryFee = ({ show, onFeeChange }: { show: boolean, onFeeChange: (fee: number, feeText: string) => void }) => {
     const [fee, setFee] = useState(0);
 
     const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedFee = Number(event.target.value);
+        const selectedFeeText = event.target.options[event.target.selectedIndex].text;
         setFee(selectedFee);
-        onFeeChange(selectedFee);
+        onFeeChange(selectedFee, selectedFeeText);
     };
 
     if (!show) return null;
@@ -106,7 +111,7 @@ const DeliveryFee = ({ show, onFeeChange }: { show: boolean, onFeeChange: (fee: 
         <div className='mt-5'>
             <label className='font-bold'>Taxa entrega:</label><br />
             <select id="taxa-entrega" onChange={handleSelectChange} className='m-1 border p-1 rounded my-1'>
-                <option value="0">Selecione o seu bairro</option>
+                <option value="0">Selecione o bairro</option>
                 <option value="4">Santa Maria</option>
                 <option value="5">Green Maria</option>
                 <option value="6">Estados</option>
@@ -136,7 +141,9 @@ export function Carrinho() {
     const [showInput, setShowInput] = useState(false);
     const [showInputTroco, setShowInputTroco] = useState(false);
     const [paymentMethod, setPaymentMethod] = useState("");
-    const [deliveryFee, setDeliveryFee] = useState(0); // Novo estado para a taxa de entrega
+    const [deliveryFee, setDeliveryFee] = useState(0);
+    const [deliveryFeeText, setDeliveryFeeText] = useState("");
+    const [trocoAmount, setTrocoAmount] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -192,6 +199,15 @@ export function Carrinho() {
         setShowInputTroco(value === "sim");
     };
 
+    const handleFeeChange = (fee: number, feeText: string) => {
+        setDeliveryFee(fee);
+        setDeliveryFeeText(feeText);
+    };
+
+    const handleTrocoAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setTrocoAmount(Number(event.target.value));
+    };
+
     const validateFields = (): boolean => {
         let isValid = true;
         const inputs = document.querySelectorAll<HTMLInputElement>("#cart-modal input");
@@ -223,100 +239,111 @@ export function Carrinho() {
             return;
         }
 
+        // Formatação dos itens do carrinho
         const cartItems = cart.map((item) => {
-            const adicionais = item.nomeAdc ? `\nADICIONAL: ${item.nomeAdc}` : '';
-            const observacao = item.observacao ? `\nOBSERVACAO: ${item.observacao}` : '';
-            return `ITEM: ${item.name}${adicionais}${observacao}\nPREÇO: R$ ${item.price.toFixed(2)}\n\n\n`;
-        }).join("");
+            const adicionais = item.nomeAdc ? `\n*Adicional:* ${item.nomeAdc}` : "";
+            const observacao = item.observacao ? `\n*Observacao*: ${item.observacao}` : "";
+            return `${item.name}${adicionais}${observacao}\nR$ ${item.price.toFixed(2)}`;
+        });
 
-        const total = cart.reduce((acc, item) => acc + item.price, 0);
-        const pickupText = pickup === "sim" ? "RETIRADA: SIM" : "RETIRADA: NAO";
-        const addressText = address ? `ENDEREÇO: ${address}` : '';
-        const paymentText = paymentMethod ? `FORMA DE PAGAMENTO: ${paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1)}\n` : '';
-        const deliveryFeeText = deliveryFee > 0 ? `TAXA DE ENTREGA: R$ ${deliveryFee}.00\n` : '';
+        const formattedItems = cartItems.join('\n\n');
 
-        const message = encodeURIComponent(
-            `CLIENTE: ${name}\nCONTATO: ${phone}\n\n\n${pickupText}\n${addressText}\n\n${cartItems}${deliveryFeeText}TOTAL: R$ ${total + deliveryFee}.00\n${paymentText}`
-        );
-        const phoneToSend = "41987479523";
+        // Calcula o total do pedido
+        const total = cart.reduce((acc, item) => acc + item.price, deliveryFee);
 
-        window.open(`https://wa.me/${phoneToSend}?text=${message}`);
+        // Formata as informações
+        const pickupText = pickup === "sim" ? "Sim" : "Não";
+        const trocoText = showInputTroco ? `\n*Preciso de troco para:* R$ ${trocoAmount}` : '';
+        const deliveryFeeTextFormatted = deliveryFee > 0 ? `\*Bairro:* ${deliveryFeeText}\n*Taxa de Entrega* R$ ${deliveryFee}.00` : '';
+
+        // Mensagem do WhatsApp
+        const message = `*RESUMO DO PEDIDO*\n\n` +
+            `*Nome:* ${name}\n` +
+            `*Contato:* ${phone}\n\n` +
+
+            `*Retirada no local:* ${pickupText}\n` +
+            `${deliveryFeeTextFormatted}\n` +
+            `${address ? `*Endereço de entrega:* ${address}\n\n` : ''}` +
+            `*Total:* R$ ${total.toFixed(2)}\n` +
+            `*Forma de pagamento:* ${paymentMethod}${trocoText}\n\n` +
+            `*Data e Hora do pedido:* ${dateTime.toLocaleString()}\n\n` +
+            `${formattedItems}\n`
+
+        // Codifica a mensagem e abre o WhatsApp
+        const encodedMessage = encodeURIComponent(message);
+        window.open(`https://wa.me/41987479523?text=${encodedMessage}`);
     };
 
     return (
         <div id="cart-modal" className="cart-modal bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden" onClick={closeModal}>
             <div className="bg-white rounded-md cart min-w-[90%] max-h-[90%] md:min-w-[600px]">
-                <div className='flex items-center justify-center'>
-                    <img src={Logo} alt="" width="60" className='mb-2' />
-                    <h2 className="text-center font-bold text-2xl">Hot Rock Dog</h2>
+                <div className="flex justify-center items-center mb-10">
+                    <div className='flex items-center'>
+                        <img src={Logo} alt="Logo" style={{ width: '50px', marginBlockStart: '15px' }} />
+                        <h2 className="text-2xl font-bold mt-5">Seu Pedido</h2>
+                    </div>
                 </div>
-                <h2 className="text-center font-bold text-lg">Meu carrinho</h2>
-                <p className="text-center font-bold mb-10">{dateTime.toLocaleString()}</p>
-
                 <div id="cart-items"></div>
-
-                <p className="font-bold text-lg">Total: <span id="cart-total">R$ 0.00</span></p>
-
-                <div className='inputs-info justify-between mt-5'>
-                    <div className='input-nome'>
-                        <p className='font-bold'>Nome: </p>
-                        <input type="text" placeholder="Digite seu nome..." className="border rounded p-1 my-1" value={name} onChange={handleNameChange} />
-                    </div>
-                    <div>
-                        <p className='font-bold'>Contato: </p>
-                        <input type="number" placeholder="Digite seu contato..." className="border rounded p-1 my-1" value={phone} onChange={handlePhoneChange} />
-                    </div>
+                <div className="text-lg">
+                    <strong className=''>Total:</strong><span id="cart-total">R$ 0.00</span>
                 </div>
-
-                <div id="retirada" className='mt-5'>
-                    <label className='font-bold'>Entrega\Retirada</label><br />
-                    <select className='m-1 border p-1 rounded my-1' onChange={handleRetiradaChange}>
+                <div className="mt-4">
+                    <label className="font-bold">Nome:</label><br />
+                    <input type="text" id="nome" value={name} onChange={handleNameChange} className="m-1 border p-1 rounded w-full" />
+                </div>
+                <div className="mt-4">
+                    <label className="font-bold">Telefone:</label><br />
+                    <input type="number" id="telefone" value={phone} onChange={handlePhoneChange} className="m-1 border p-1 rounded w-full" />
+                </div>
+                <div className="mt-4">
+                    <label className="font-bold">Retirar no local?</label><br />
+                    <select id="retirada" value={pickup} onChange={handleRetiradaChange} className="m-1 border p-1 rounded w-full">
                         <option value="0">--</option>
-                        <option value="sim">Entrega</option>
-                        <option value="nao">Retirada</option>
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
                     </select>
                 </div>
-
                 {showDeliveryFields && (
-                    <div>
-                        <p className="font-bold mt-5">Endereço:</p>
-                        <input id='input-address' type="text" placeholder="Digite seu endereço completo..." className="w-full border p-1 rounded my-1" value={address} onChange={handleAddressChange} />
-                        <DeliveryFee show={showDeliveryFields} onFeeChange={setDeliveryFee} />
-                    </div>
+                    <>
+                        <div className="mt-4">
+                            <label className="font-bold">Endereço:</label><br />
+                            <input type="text" id="endereco" value={address} onChange={handleAddressChange} className="m-1 border p-1 rounded w-full" />
+                        </div>
+                        <DeliveryFee show={true} onFeeChange={handleFeeChange} />
+                    </>
                 )}
-
-                <div className='flex justify-between mt-5'>
-                    <div id="pagamento">
-                        <label className='font-bold'>Forma Pagamento</label><br />
-                        <select className='m-1 border p-1 rounded my-1' onChange={handlePaymentChange}>
-                            <option value="0">--</option>
-                            <option value="credito">Crédito</option>
-                            <option value="debito">Débito</option>
-                            <option value="pix">PIX</option>
-                            <option value="dinheiro">Dinheiro</option>
+                <div className="mt-4">
+                    <label className="font-bold">Forma de pagamento:</label><br />
+                    <select id="pagamento" value={paymentMethod} onChange={handlePaymentChange} className="m-1 border p-1 rounded w-full">
+                        <option value="0">--</option>
+                        <option value="Credito">Crédito</option>
+                        <option value="Debito">Débito</option>
+                        <option value="PIX">PIX</option>
+                        <option value="dinheiro">Dinheiro</option>
+                    </select>
+                </div>
+                {showInput && (
+                    <div className="mt-4">
+                        <label className="font-bold">Precisa de troco?</label><br />
+                        <select id="precisa-troco" value={showInputTroco ? "sim" : "nao"} onChange={handleTrocoChange} className="m-1 border p-1 rounded w-full">
+                            <option value="nao">Não</option>
+                            <option value="sim">Sim</option>
                         </select>
                     </div>
-
-                    {showInput && (
-                        <div id="troco">
-                            <label className='font-bold'>Precisa de Troco?</label><br />
-                            <select className='m-1 border p-1 rounded my-1' onChange={handleTrocoChange}>
-                                <option value="0">--</option>
-                                <option value="sim">Sim</option>
-                                <option value="nao">Não</option>
-                            </select>
-                            {showInputTroco && (
-                                <input id='input-troco' className='m-1 border p-1 rounded my-1' type="text" placeholder='Ex: R$ 50' style={{ width: 80 }} />
-                            )}
-                        </div>
-                    )}
-                </div>
-
-                <div className="flex items-center justify-between mt-5 w-full">
-                    <button onClick={handleCloseModalBtn}>Fechar</button>
-                    <button className="bg-green-500 text-white px-4 py-1 rounded" onClick={checkoutBtn}>Finalizar pedido</button>
+                )}
+                {showInputTroco && (
+                    <div id="troco" className="mt-4">
+                        <label className="font-bold">Troco para quanto?</label><br />
+                        <input type="number" id="troco-amount" value={trocoAmount} onChange={handleTrocoAmountChange} className="m-1 border p-1 rounded w-full" />
+                    </div>
+                )}
+                <div className="mt-5 flex justify-between">
+                    <button id="checkout-btn" onClick={handleCloseModalBtn} className="btn-close-cart">Fechar</button>
+                    <button id="checkout-btn" onClick={checkoutBtn} className="bg-green-500 text-white px-4 py-2 rounded">Finalizar Pedido</button>
                 </div>
             </div>
         </div>
     );
 }
+
+export default Carrinho;
