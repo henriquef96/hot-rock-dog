@@ -8,8 +8,8 @@ import Hamb_5 from '../../../assets/img/hot-dogs/05-calabresa.png';
 import Hamb_6 from '../../../assets/img/hot-dogs/06-lombinho.png';
 import Hamb_7 from '../../../assets/img/hot-dogs/07-frango-cheddar.png';
 import Hamb_8 from '../../../assets/img/hot-dogs/08-frango-catupiry.png';
-import Hamb_9 from '../../../assets/img/hot-dogs/09-frango-bacon.png';
-import Hamb_10 from '../../../assets/img/hot-dogs/10-frango-calabresa.png';
+import Hamb_9 from '../../../assets/img/hot-dogs/10-frango-calabresa.png';
+import Hamb_10 from '../../../assets/img/hot-dogs/09-frango-bacon.png';
 import Hamb_11 from '../../../assets/img/hot-dogs/11-bacon-calabresa.png';
 import Hamb_12 from '../../../assets/img/hot-dogs/12-lombinho-bacon.png';
 import Hamb_13 from '../../../assets/img/hot-dogs/13-bacon-queijo.png';
@@ -132,24 +132,25 @@ export function HotDog() {
           <MenuItem
             type="comida"
             src={Hamb_9}
-            alt='Dog Frango Bacon'
-            nome='Dog Frango Bacon'
-            descricao='1 pão 15cm, 1 vina perdigão, maionese, milho, tomate, farofa especial, frango desfiado, bacon, catchup, mostarda, batata palha'
-            preco='18,00'
-            data_name='Dog Frango Bacon'
-            data_price={18.00}
-            onClick={handleMenuItemClick}
-          />
-
-          <MenuItem
-            type="comida"
-            src={Hamb_10}
             alt='Dog Frango Calabresa'
             nome='Dog Frango Calabresa'
             descricao='1 pão 15cm, 1 vina perdigão, maionese, milho, tomate, farofa, frango desfiado, calabresa, catchup, mostarda, batata palha'
             preco='17,00'
             data_name='Dog Frango Calabresa'
             data_price={17.00}
+            onClick={handleMenuItemClick}
+          />
+
+
+          <MenuItem
+            type="comida"
+            src={Hamb_10}
+            alt='Dog Frango Bacon'
+            nome='Dog Frango Bacon'
+            descricao='1 pão 15cm, 1 vina perdigão, maionese, milho, tomate, farofa especial, frango desfiado, bacon, catchup, mostarda, batata palha'
+            preco='18,00'
+            data_name='Dog Frango Bacon'
+            data_price={18.00}
             onClick={handleMenuItemClick}
           />
 

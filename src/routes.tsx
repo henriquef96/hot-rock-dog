@@ -11,7 +11,7 @@ import { Bebidas } from './pages/cardapio/bebidas';
 
 const router = createBrowserRouter([
     {
-        path: "/hot-rock-dog/",
+        path: "/",
         element: <App />,
         children: [
             {

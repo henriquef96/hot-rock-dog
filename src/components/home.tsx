@@ -64,7 +64,7 @@ export function Home() {
         const handleScrollY = () => {
             if (window.scrollY > 0 && !hasScrolled) {
                 setHasScrolled(true);
-                navigate('/hot-rock-dog/combos');
+                navigate('/combos');
             }
         };
 

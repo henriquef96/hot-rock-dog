@@ -46,12 +46,12 @@ export function Categoria() {
         <div className='h-dvh'>
             <div className='flex items-center justify-center bg-categoria '>
                 <div className='flex w-full flex-wrap div-categoria'>
-                    <CategoriaItem link={'combos'} img={Item_1} nome='Combos' />
-                    <CategoriaItem link={'hot_dog'} img={Item_2} nome='Hot Dogs' />
-                    <CategoriaItem link={'hamburgers'} img={Item_3} nome='Hamburgers' />
-                    <CategoriaItem link={'pasteis'} img={Item_4} nome='Pasteis' />
-                    <CategoriaItem link={'porcoes'} img={Item_5} nome='Porções' />
-                    <CategoriaItem link={'bebidas'} img={Item_6} nome='Bebidas' />
+                    <CategoriaItem link={'/combos'} img={Item_1} nome='Combos' />
+                    <CategoriaItem link={'/hot_dog'} img={Item_2} nome='Hot Dogs' />
+                    <CategoriaItem link={'/hamburgers'} img={Item_3} nome='Hamburgers' />
+                    <CategoriaItem link={'/pasteis'} img={Item_4} nome='Pasteis' />
+                    <CategoriaItem link={'/porcoes'} img={Item_5} nome='Porções' />
+                    <CategoriaItem link={'/bebidas'} img={Item_6} nome='Bebidas' />
                 </div>
             </div>
             <Outlet />

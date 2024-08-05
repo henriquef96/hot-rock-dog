@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
 import Hamburger from '../../../assets/img/hamburgers/hamburger.png';
-import Hamburger_1 from '../../../assets/img/hamburgers/01-x-calabresa.png';
-import Hamburger_2 from '../../../assets/img/hamburgers/02-x-bacon.png';
-import Hamburger_3 from '../../../assets/img/hamburgers/03-x-salada.png';
-import Hamburger_4 from '../../../assets/img/hamburgers/04-calabresa-bacon.png';
-import Hamburger_5 from '../../../assets/img/hamburgers/05-x-frango-calabresa.png';
-import Hamburger_6 from '../../../assets/img/hamburgers/06-x-tudo.png';
-import Hamburger_7 from '../../../assets/img/hamburgers/07-x-lombinho.png';
-import Hamburger_8 from '../../../assets/img/hamburgers/08-x-frango.png';
+import Hamburger_2 from '../../../assets/img/hamburgers/x-salada.png';
+import Hamburger_3 from '../../../assets/img/hamburgers/x-calabresa.png';
+import Hamburger_4 from '../../../assets/img/hamburgers/x-bacon.png';
+import Hamburger_5 from '../../../assets/img/hamburgers/x-lombinho.png';
+import Hamburger_6 from '../../../assets/img/hamburgers/x-frango.png';
+import Hamburger_7 from '../../../assets/img/hamburgers/x-calabresa-bacon.png';
+import Hamburger_8 from '../../../assets/img/hamburgers/x-frango-calabresa.png';
+import Hamburger_9 from '../../../assets/img/hamburgers/x-tudo.png';
 
 import { MenuItem } from '../../../components/itensMenu';
 import { Menu } from '../../../components/carrinho';
@@ -30,31 +30,19 @@ export function Hamburgers() {
 
           <MenuItem
             type="comida"
-            src={Hamburger_1}
-            alt='X Calabresa'
-            nome="X Calabresa"
-            preco='17,00'
-            data_name='X Calabresa'
-            data_price={17.00}
-            descricao='1 pão, maionese, mostarda, ketchup, 1 hambúrguer, alface, tomate, milho, queijo, presunto, calabresa, cheddar ou Catupiry'
+            src={Hamburger}
+            alt='X Burger'
+            nome="X Burger"
+            preco='12,00'
+            data_name='X Burger'
+            data_price={12.00}
+            descricao='1 pão argolinha, maionese caseira, ketchup, 1 hambúrguer perdigão, queijo muçarela, presunto, cheddar, Catupiry'
             onClick={handleMenuItemClick}
           />
 
           <MenuItem
             type="comida"
             src={Hamburger_2}
-            alt='X Bacon'
-            nome="X Bacon"
-            preco='17,00'
-            data_name='X Bacon'
-            data_price={17.00}
-            descricao='1 pão, maionese, mostarda, ketchup, 1 hambúrguer, alface, tomate, milho, queijo, presunto, bacon, cheddar ou Catupiry'
-            onClick={handleMenuItemClick}
-          />
-
-          <MenuItem
-            type="comida"
-            src={Hamburger_3}
             alt='X Salada'
             nome="X Salada"
             preco='15,00'
@@ -66,43 +54,31 @@ export function Hamburgers() {
 
           <MenuItem
             type="comida"
-            src={Hamburger_4}
-            alt='X Calabresa Bacon'
-            nome="X Calabresa Bacon"
-            preco='20,00'
-            data_name='X Calabresa Bacon'
-            data_price={20.00}
+            src={Hamburger_3}
+            alt='X Calabresa'
+            nome="X Calabresa"
+            preco='17,00'
+            data_name='X Calabresa'
+            data_price={17.00}
             descricao='1 pão, maionese, mostarda, ketchup, 1 hambúrguer, alface, tomate, milho, queijo, presunto, calabresa, cheddar ou Catupiry'
             onClick={handleMenuItemClick}
           />
 
           <MenuItem
             type="comida"
+            src={Hamburger_4}
+            alt='X Bacon'
+            nome="X Bacon"
+            preco='17,00'
+            data_name='X Bacon'
+            data_price={17.00}
+            descricao='1 pão, maionese, mostarda, ketchup, 1 hambúrguer, alface, tomate, milho, queijo, presunto, bacon, cheddar ou Catupiry'
+            onClick={handleMenuItemClick}
+          />
+
+          <MenuItem
+            type="comida"
             src={Hamburger_5}
-            alt='X Frango Calabresa'
-            nome="X Frango Calabresa"
-            preco='20,00'
-            data_name='X Frango Calabresa'
-            data_price={20.00}
-            descricao='1 pão, maionese, ketchup, 2 hambúrguer, alface, tomate, milho, queijo, presunto, bacon, calabresa, frango, cheddar'
-            onClick={handleMenuItemClick}
-          />
-
-          <MenuItem
-            type="comida"
-            src={Hamburger_6}
-            alt='X Tudo'
-            nome="X Tudo"
-            preco='28,00'
-            data_name='X Tudo'
-            data_price={28.00}
-            descricao='1 pão, 2 hambúrguer, alface crespa, tomate, milho, queijo, presunto, bacon, calabresa, frango, cheddar, Catupiry'
-            onClick={handleMenuItemClick}
-          />
-
-          <MenuItem
-            type="comida"
-            src={Hamburger_7}
             alt='X Lombinho'
             nome="X Lombinho"
             preco='17,00'
@@ -114,7 +90,7 @@ export function Hamburgers() {
 
           <MenuItem
             type="comida"
-            src={Hamburger_8}
+            src={Hamburger_6}
             alt='X Frango'
             nome="X Frango"
             preco='17,00'
@@ -126,7 +102,7 @@ export function Hamburgers() {
 
           <MenuItem
             type="comida"
-            src={Hamburger_3}
+            src={Hamburger_7}
             alt='X Salada Duplo'
             nome="X Salada Duplo"
             preco='17,00'
@@ -150,6 +126,30 @@ export function Hamburgers() {
 
           <MenuItem
             type="comida"
+            src={Hamburger_7}
+            alt='X Calabresa Bacon'
+            nome="X Calabresa Bacon"
+            preco='20,00'
+            data_name='X Calabresa Bacon'
+            data_price={20.00}
+            descricao='1 pão, maionese, mostarda, ketchup, 1 hambúrguer, alface, tomate, milho, queijo, presunto, calabresa, cheddar ou Catupiry'
+            onClick={handleMenuItemClick}
+          />
+
+          <MenuItem
+            type="comida"
+            src={Hamburger_8}
+            alt='X Frango Calabresa'
+            nome="X Frango Calabresa"
+            preco='20,00'
+            data_name='X Frango Calabresa'
+            data_price={20.00}
+            descricao='1 pão, maionese, ketchup, 2 hambúrguer, alface, tomate, milho, queijo, presunto, bacon, calabresa, frango, cheddar'
+            onClick={handleMenuItemClick}
+          />
+
+          <MenuItem
+            type="comida"
             src={Hamburger}
             alt='X Frango Bacon'
             nome="X Frango Bacon"
@@ -162,13 +162,13 @@ export function Hamburgers() {
 
           <MenuItem
             type="comida"
-            src={Hamburger}
-            alt='X Burger'
-            nome="X Burger"
-            preco='12,00'
-            data_name='X Burger'
-            data_price={12.00}
-            descricao='1 pão argolinha, maionese caseira, ketchup, 1 hambúrguer perdigão, queijo muçarela, presunto, cheddar, Catupiry'
+            src={Hamburger_9}
+            alt='X Tudo'
+            nome="X Tudo"
+            preco='28,00'
+            data_name='X Tudo'
+            data_price={28.00}
+            descricao='1 pão, 2 hambúrguer, alface crespa, tomate, milho, queijo, presunto, bacon, calabresa, frango, cheddar, Catupiry'
             onClick={handleMenuItemClick}
           />
         </div>

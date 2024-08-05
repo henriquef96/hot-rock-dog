@@ -251,16 +251,16 @@ export function Carrinho() {
         const total = cart.reduce((acc, item) => acc + item.price, deliveryFee);
 
         // Formata as informações
-        const pickupText = pickup === "sim" ? "Sim" : "Não";
-        const trocoText = showInputTroco ? `\n*Preciso de troco para:* R$ ${trocoAmount}` : '';
-        const deliveryFeeTextFormatted = deliveryFee > 0 ? `\*Bairro:* ${deliveryFeeText}\n*Taxa de Entrega* R$ ${deliveryFee}.00` : '';
+        const pickupText = pickup === "sim" ? "Retirar no Local" : "Preciso de Entrega";
+        const trocoText = showInputTroco ? `\n*Preciso de troco para:* R$ ${trocoAmount}.00` : '';
+        const deliveryFeeTextFormatted = deliveryFee > 0 ? `\*Bairro:* ${deliveryFeeText}\n*Taxa de Entrega:* R$ ${deliveryFee}.00` : '';
 
         // Mensagem do WhatsApp
         const message = `*RESUMO DO PEDIDO*\n\n` +
             `*Nome:* ${name}\n` +
             `*Contato:* ${phone}\n\n` +
 
-            `*Retirada no local:* ${pickupText}\n` +
+            `*${pickupText}*\n` +
             `${deliveryFeeTextFormatted}\n` +
             `${address ? `*Endereço de entrega:* ${address}\n\n` : ''}` +
             `*Total:* R$ ${total.toFixed(2)}\n` +

@@ -36,6 +36,18 @@ export function Pasteis() {
 
                     <MenuItem
                         type="comida"
+                        src={Pastel_10}
+                        alt='Pastel Carne'
+                        nome="Pastel Carne"
+                        preco='12,00'
+                        data_name='Pastel Carne'
+                        data_price={12.00}
+                        descricao="Delicioso pastel crocante sabor carne tamanho 22cmx10cm"
+                        onClick={handleMenuItemClick}
+                    />
+
+                    <MenuItem
+                        type="comida"
                         src={Pastel_1}
                         alt='Pastel Carne Queijo'
                         nome="Pastel Carne Queijo"
@@ -43,42 +55,6 @@ export function Pasteis() {
                         data_name='Pastel Carne Queijo'
                         data_price={12.00}
                         descricao="Delicioso pastel sabor carne com queijo tamanho 22cmx10cm"
-                        onClick={handleMenuItemClick}
-                    />
-
-                    <MenuItem
-                        type="comida"
-                        src={Pastel_2}
-                        alt='Pastel Especial'
-                        nome="Pastel Especial"
-                        preco='17,00'
-                        data_name='Pastel Especial'
-                        data_price={17.00}
-                        descricao="Pastel especial 22cmx10cm, carne, queijo, azeitona e ovo"
-                        onClick={handleMenuItemClick}
-                    />
-
-                    <MenuItem
-                        type="comida"
-                        src={Pastel_3}
-                        alt='Pastel Frango Cheddar'
-                        nome="Pastel Frango Cheddar"
-                        preco='13,00'
-                        data_name='Pastel Frango Cheddar'
-                        data_price={13.00}
-                        descricao="Delicioso pastel de frango com cheddar tamanho 22cmx10cm"
-                        onClick={handleMenuItemClick}
-                    />
-
-                    <MenuItem
-                        type="comida"
-                        src={Pastel_4}
-                        alt='Pastel Queijo e Goiabada'
-                        nome="Pastel Queijo Goiabada"
-                        preco='14,00'
-                        data_name='Pastel Queijo Goiabada'
-                        data_price={14.00}
-                        descricao="Delicioso pastel sabor queijo com goiabada tamanho 22cmx10cm"
                         onClick={handleMenuItemClick}
                     />
 
@@ -94,17 +70,6 @@ export function Pasteis() {
                         onClick={handleMenuItemClick}
                     />
 
-                    <MenuItem
-                        type="comida"
-                        src={Pastel_6}
-                        alt='Pastel Frango Catupiry'
-                        nome="Pastel Frango Catupiry"
-                        preco='13,00'
-                        data_name='Pastel Frango Catupiry'
-                        data_price={13.00}
-                        descricao="Delicioso pastel sabor frango com Catupiry tamanho 22cmx10cm"
-                        onClick={handleMenuItemClick}
-                    />
 
                     <MenuItem
                         type="comida"
@@ -132,6 +97,30 @@ export function Pasteis() {
 
                     <MenuItem
                         type="comida"
+                        src={Pastel_3}
+                        alt='Pastel Frango Cheddar'
+                        nome="Pastel Frango Cheddar"
+                        preco='13,00'
+                        data_name='Pastel Frango Cheddar'
+                        data_price={13.00}
+                        descricao="Delicioso pastel de frango com cheddar tamanho 22cmx10cm"
+                        onClick={handleMenuItemClick}
+                    />
+
+                    <MenuItem
+                        type="comida"
+                        src={Pastel_6}
+                        alt='Pastel Frango Catupiry'
+                        nome="Pastel Frango Catupiry"
+                        preco='13,00'
+                        data_name='Pastel Frango Catupiry'
+                        data_price={13.00}
+                        descricao="Delicioso pastel sabor frango com Catupiry tamanho 22cmx10cm"
+                        onClick={handleMenuItemClick}
+                    />
+
+                    <MenuItem
+                        type="comida"
                         src={Pastel_9}
                         alt='Pastel Pizza'
                         nome="Pastel Pizza"
@@ -142,17 +131,6 @@ export function Pasteis() {
                         onClick={handleMenuItemClick}
                     />
 
-                    <MenuItem
-                        type="comida"
-                        src={Pastel_10}
-                        alt='Pastel Carne'
-                        nome="Pastel Carne"
-                        preco='12,00'
-                        data_name='Pastel Carne'
-                        data_price={13.00}
-                        descricao="Delicioso pastel crocante sabor carne tamanho 22cmx10cm"
-                        onClick={handleMenuItemClick}
-                    />
 
                     <MenuItem
                         type="comida"
@@ -163,6 +141,30 @@ export function Pasteis() {
                         data_name='Pastel Bacon Queijo'
                         data_price={14.00}
                         descricao="Delicioso pastel sabor bacon com queijo tamanho 22cmx10cm"
+                        onClick={handleMenuItemClick}
+                    />
+
+                    <MenuItem
+                        type="comida"
+                        src={Pastel_4}
+                        alt='Pastel Queijo e Goiabada'
+                        nome="Pastel Queijo Goiabada"
+                        preco='14,00'
+                        data_name='Pastel Queijo Goiabada'
+                        data_price={14.00}
+                        descricao="Delicioso pastel sabor queijo com goiabada tamanho 22cmx10cm"
+                        onClick={handleMenuItemClick}
+                    />
+
+                    <MenuItem
+                        type="comida"
+                        src={Pastel_2}
+                        alt='Pastel Especial'
+                        nome="Pastel Especial"
+                        preco='17,00'
+                        data_name='Pastel Especial'
+                        data_price={17.00}
+                        descricao="Pastel especial 22cmx10cm, carne, queijo, azeitona e ovo"
                         onClick={handleMenuItemClick}
                     />
 

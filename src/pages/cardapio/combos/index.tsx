@@ -11,6 +11,7 @@ import { Menu } from '../../../components/carrinho'
 import { DetalhesMenu } from '../../../components/detalhesMenu';
 
 export function Combos() {
+
   const [selectedItem, setSelectedItem] = useState<{ nome: string; preco: number; } | null>(null);
 
   const handleMenuItemClick = (nome: string, preco: number) => {
