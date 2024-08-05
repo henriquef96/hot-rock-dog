@@ -113,7 +113,7 @@ export function DetalhesMenu({ type, nome, preco }: DetalhesMenuProps) {
     };
 
     return (
-        <div id="menu-modal" className="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden p-5" onClick={closeModal}>
+        <div id="menu-modal" className="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden" onClick={closeModal}>
             <div className="rounded-md flex modal-menu">
                 <div className='img-modal-menu'>
                     <div id="output"></div>

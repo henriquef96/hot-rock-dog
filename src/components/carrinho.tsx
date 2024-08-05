@@ -86,7 +86,6 @@ function updateCartModal() {
     }
 }
 
-
 function removeFromCart(name: string) {
     const item = cart.find(item => item.name === name);
     if (item) {
@@ -285,7 +284,7 @@ export function Carrinho() {
                 </div>
                 <div id="cart-items"></div>
                 <div className="text-lg">
-                    <strong className=''>Total:</strong><span id="cart-total">R$ 0.00</span>
+                    <strong className=''>Total: </strong><span id="cart-total">R$ 0.00</span>
                 </div>
                 <div className="mt-4">
                     <label className="font-bold">Nome:</label><br />
@@ -296,11 +295,11 @@ export function Carrinho() {
                     <input type="number" id="telefone" value={phone} onChange={handlePhoneChange} className="m-1 border p-1 rounded w-full" />
                 </div>
                 <div className="mt-4">
-                    <label className="font-bold">Retirar no local?</label><br />
+                    <label className="font-bold">Retirada | Entrega</label><br />
                     <select id="retirada" value={pickup} onChange={handleRetiradaChange} className="m-1 border p-1 rounded w-full">
                         <option value="0">--</option>
-                        <option value="sim">Sim</option>
-                        <option value="nao">Não</option>
+                        <option value="sim">Retirar no Local</option>
+                        <option value="nao">Preciso de Entrega</option>
                     </select>
                 </div>
                 {showDeliveryFields && (
@@ -338,8 +337,8 @@ export function Carrinho() {
                     </div>
                 )}
                 <div className="mt-5 flex justify-between">
-                    <button id="checkout-btn" onClick={handleCloseModalBtn} className="btn-close-cart">Fechar</button>
-                    <button id="checkout-btn" onClick={checkoutBtn} className="bg-green-500 text-white px-4 py-2 rounded">Finalizar Pedido</button>
+                    <button id="checkout-btn" onClick={handleCloseModalBtn}>Fechar</button>
+                    <button id="checkout-btn" onClick={checkoutBtn} className="bg-green-500 text-white btn-fnl rounded">Finalizar Pedido</button>
                 </div>
             </div>
         </div>

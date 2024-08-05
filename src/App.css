@@ -182,11 +182,8 @@ select {
     display: flex;
 }
 
-.btn-close-cart {
-    background-color: rgb(255, 70, 70);
-    padding: 5px;
-    border-radius: 4px;
-    color: white;
+.btn-fnl{
+    padding: 3px;
 }
 
 @media screen and (max-width: 1023px) {
